@@ -428,7 +428,6 @@ export interface ApiPostPost extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    views: Attribute.Integer;
     content: Attribute.Blocks;
     author: Attribute.Relation<
       'api::post.post',
@@ -441,6 +440,15 @@ export interface ApiPostPost extends Schema.CollectionType {
       'api::answer.answer'
     >;
     tags: Attribute.Relation<'api::post.post', 'manyToMany', 'api::tag.tag'>;
+    isClosed: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    votes: Attribute.Relation<
+      'api::post.post',
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    views: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

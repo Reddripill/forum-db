@@ -15,9 +15,6 @@
     "title": {
       "type": "string"
     },
-    "views": {
-      "type": "integer"
-    },
     "content": {
       "type": "blocks"
     },
@@ -38,6 +35,19 @@
       "relation": "manyToMany",
       "target": "api::tag.tag",
       "mappedBy": "posts"
+    },
+    "isClosed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "votes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "views": {
+      "type": "json"
     }
   }
 }
