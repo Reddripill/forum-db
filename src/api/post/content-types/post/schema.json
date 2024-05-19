@@ -45,6 +45,9 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user"
+    },
+    "views": {
+      "type": "json"
     }
   }
 }
