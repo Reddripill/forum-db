@@ -448,7 +448,6 @@ export interface ApiPostPost extends Schema.CollectionType {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
-    views: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
